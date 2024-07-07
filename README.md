@@ -10,6 +10,8 @@ This project is an API designed for managing the operations of a drugstore in Ba
 - [Testing](#testing)
 - [Deployment](#deployment)
 
+- **node 16**
+
 ## Setup MongoDB
 
 To set up MongoDB using Docker, navigate to the `db` directory and run the following command:
