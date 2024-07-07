@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: site_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+      - ./mongod.conf:/etc/mongo/mongod.conf
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+    command: ["mongod", "--config", "/etc/mongo/mongod.conf", "--auth"]
+    networks:
+      - mongo-network
+
+  mongo-seed:
+    image: node:16
+    container_name: mongo_seed
+    depends_on:
+      - mongo
+    volumes:
+      - .:/app
+    working_dir: /app
+    entrypoint: ["sh", "-c"]
+    command: ["npm install && npm install mongoose && node init-db.js"]
+    environment:
+      MONGO_URI: mongodb://admin:password123@mongo:27017/site?authSource=admin
+    networks:
+      - mongo-network
+
+volumes:
+  mongo-data:
+
+networks:
+  mongo-network:
+    driver: bridge

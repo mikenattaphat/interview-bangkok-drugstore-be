@@ -1,0 +1,6 @@
+projectKey=testq
+serverUrl=http://a00b33ad26f8e4a89b0428ee3ca0410b-880167989.ap-southeast-1.elb.amazonaws.com
+serverVersion=10.5.1.90531
+dashboardUrl=http://a00b33ad26f8e4a89b0428ee3ca0410b-880167989.ap-southeast-1.elb.amazonaws.com/dashboard?id=testq
+ceTaskId=6f8a2aab-2f75-4052-876a-d4ea12fc7c5d
+ceTaskUrl=http://a00b33ad26f8e4a89b0428ee3ca0410b-880167989.ap-southeast-1.elb.amazonaws.com/api/ce/task?id=6f8a2aab-2f75-4052-876a-d4ea12fc7c5d
